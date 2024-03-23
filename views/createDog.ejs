@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display your dog | Wuuf</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/push-right.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="flex flex-col w-screen">
+    <% if(thingy){  %>
+        <nav class="flex w-screen h-2/5 place-items-center justify-evenly bg-white p-5 py-7 mx-10">
+            <div class='w-1/6'>
+                <h1 class="text-black text-l border-r-2 border-gray-400 text-center font-extrabold"><a href="/">WUUUUUUUUUUUUF</a></h1>
+            </div>
+            <div class="w-3/6">
+                <div class="w-full flex justify-evenly text-black text-l tracking-wider">
+                    <a href="/mydogs" class="hover:underline underline-offset-8">Your Dogs</a>
+                    <a href="/createdog" class="hover:underline underline-offset-8">Sell
+                        Your Dog</a>
+                    <a href="/dogs" class="hover:underline underline-offset-8">Adopt
+                        A Dog</a>
+                </div>
+            </div>
+            <div class="w-1/6 flex justify-evenly text-black text-l mx-8 tracking-wide">
+                  <form action="/logout" method="POST">
+                    <button 
+                        class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 rounded-lg px-4 py-2 bg-orange-600 text-white font-semibold transition duration-100">Log out</button>
+                  </form>
+            </div>
+        </nav>
+        <% } %>
+        <% if(!thingy){ %>
+            <nav class="flex w-screen h-2/5 place-items-center justify-evenly bg-white p-5 py-7 mx-10">
+                <div class='w-1/6'>
+                    <h1 class="text-black text-l border-r-2 border-gray-400 text-center font-extrabold"><a href="/">WUUUUUUUUUUUUF</a></h1>
+                </div>
+                <div class="w-3/6">
+                    <div class="w-full flex justify-evenly text-black text-l tracking-wider">
+                        <a href="/mydogs" class="hover:underline underline-offset-8">Your Dogs</a>
+                        <a href="/createdog" class="hover:underline underline-offset-8">Sell
+                            Your Dog</a>
+                        <a href="/dogs" class="hover:underline underline-offset-8">Adopt
+                            A Dog</a>
+                    </div>
+                </div>
+                <div class="w-1/6 flex justify-evenly text-black text-l mx-8 tracking-wide">
+                    <a href="/login"
+                        class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 hover:bg-gray-100 border border-gray-400 rounded-lg px-4 py-2 transition duration-100">Log in
+        
+                        <a href="/register"
+                            class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 rounded-lg px-4 py-2 bg-orange-600 text-white font-semibold transition duration-100">Sign up</a>
+                </div>
+            </nav>
+            <% } %>
+    <div class="w-11/12 bg-gray-100 self-center flex flex-col">
+        <form class="flex flex-col self-center h-fit p-5" action="/dogs" method="post" enctype="multipart/form-data">
+            <div class="flex flex-col my-10 w-10/12 self-center">
+                <h1 class="font-bold text-4xl my-4">Put your dog up for adoption</h1>
+                <h3 class="my-2 text-xl text-gray-500">We know its hard, but with wuuf, your dog is safe</h3>
+            </div>
+            <div class="self-center flex w-10/12 justify-evenly">
+                <div class="w-full">
+                    <p class="font-bold text-3xl my-2">What is your dogs name?</p>
+                    <p class="text-gray-500">If your dog does not have a known name, put "unknown"</p>
+                    <input type="text" id="tagName" name="dog[tagName]"
+                        class="rounded-xl p-3 border border-black h-fit my-2 self-start w-full" required>
+                </div>
+                <div class="h-full flex flex-col self-end my-2 text-lg mx-6">
+                    <p>Sex?</p>
+                    <select name="dog[sex]" id="" class="w-fit h-full self-end" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="bg-gray-300 w-10/12 h-0.5 self-center my-8">
+
+            </div>
+            <div class="self-center flex flex-col w-10/12 h-full justify-between">
+                <p class="font-bold text-3xl">Dog information</p>
+                <div class="flex flex-col h-1/6 justify-evenly mt-14 mb-6">
+                    <p class="font-bold text-2xl leading-10">Required</p>
+                    <p class="text-gray-500">Adopters must know this information</p>
+                </div>
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="flex flex-col">
+                        <label class="mb-1" for="breed">What is your dogs breed?</label>
+                        <input type="text" id="breed" name="dog[breed]"
+                            class="rounded-xl p-2 border border-black h-fit w-full" required>
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="mb-1" for="age">Enter the dogs age:</label>
+                        <input type="number" id="age" name="dog[age]"
+                            class="rounded-xl p-2 border border-black w-full h-fit" required>
+                    </div>
+                    <div
+                        class="flex self-center place-items-center w-full text-md justify-between border-b-2 border-gray-200 p-4">
+                        <p>Is your dog friendly with other pets?</p>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[dogFriendly]" value="Is pet friendly"
+                                id="dogYes">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="dogYes">Yes</label>
+                        </div>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[dogFriendly]" value="Is not pet friendly"
+                                id="dogNo">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="dogNo">No</label>
+                        </div>
+                    </div>
+                    <div
+                        class="flex self-center place-items-center w-full text-md justify-between border-b-2 border-gray-200 p-4">
+                        <p>Is your dog human friendly?</p>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[humanFriendly]" value="Is human friendly"
+                                id="humanYes">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="humanYes">Yes</label>
+                        </div>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[humanFriendly]"
+                                value="Is not friendly with humans" id="humanNo">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="humanNo">No</label>
+                        </div>
+                    </div>
+                    <div
+                        class="flex self-center place-items-center w-full text-md justify-between border-b-2 border-gray-200 p-4">
+                        <p>Does your dog have required shots?</p>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[shots]" value="Is up to date on shots"
+                                id="shotsYes">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="shotsYes">Yes</label>
+                        </div>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[shots]" value="Is not up to date on shots"
+                                id="shotsNo">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="shotsNo">No</label>
+                        </div>
+                    </div>
+                    <div
+                        class="flex self-center place-items-center w-full text-md justify-between border-b-2 border-gray-200 p-4">
+                        <p>Is your dog trained to obediance?</p>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[trained]" value="Dog is trained"
+                                id="trainedYes">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="trainedYes">Yes</label>
+                        </div>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[trained]" value="Dog is not trained"
+                                id="trainedNo">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="trainedNo">No</label>
+                        </div>
+                    </div>
+                    <div
+                        class="flex self-center place-items-center w-full text-md justify-between border-b-2 border-gray-200 p-4">
+                        <p>Is your dog available now? </p>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[available]" value="ASAP pick up"
+                                id="availableYes">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="availableYes">Yes</label>
+                        </div>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[available]"
+                                value="Is not ready to be picked up" id="availableNo">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="availableNo">No</label>
+                        </div>
+                    </div>
+                    <div
+                        class="flex self-center place-items-center w-full text-md justify-between border-b-2 border-gray-200 p-4">
+                        <p>Is your dog currenyly injured?</p>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[injured]" value="Not injured"
+                                id="injuredYes">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="injuredYes">Yes</label>
+                        </div>
+                        <div>
+                            <input class="hidden peer" type="radio" name="dog[injured]" value="Currently injured"
+                                id="injuredNo">
+                            <label
+                                class="cursor-pointer border border-black px-5 py-2 rounded-xl transition duration-100 peer-checked:text-orange-500 peer-checked:bg-gray-200"
+                                for="injuredNo">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full h-screen self-start">
+                    <div class="mt-14 mb-6">
+                        <p class="font-bold text-3xl my-1">Recommended</p>
+                        <p class="text-gray-500 my-1">Helps potential adopters with understanding your dog</p>
+                    </div>
+                    <div class="flex flex-col h-1/2 justify-evenly">
+                        <p class="font-bold text-xl">Describe your dog</p>
+                        <p class="text-gray-500">Make sure to include key traits, like playfulness, obediance, and
+                            health</p>
+                        <textarea name="dog[description]" id="description" cols="30" rows="10"
+                            class="border border-black rounded-lg p-3 w-full"></textarea>
+                    </div>
+                    <div class="flex flex-col h-1/6 justify-evenly">
+                        <label class="font-bold text-xl" for="location">Where can your dog be picked up?</label>
+                        <input type="text" id="location" name="dog[location]"
+                            class="rounded-lg p-1 border border-black h-fit">
+                    </div>
+                </div>
+                <div
+                    class="h-1/3 p-10 border self-center border border-black transition duration-200 hover:bg-gray-300 bg-gray-200 cursor-pointer">
+                    <input type="file" name="images" multiple>
+                </div>
+                <button
+                    class="w-1/2 self-center my-16 hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 rounded-lg p-8 bg-orange-600 text-white font-semibold transition duration-100 text-xl leading-10">List
+                    Dog</button>
+        </form>
+    </div>
+</body>
+<style>
+    body {
+        overflow-x: hidden;
+    }
+
+    * {
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    #colors {
+        background: linear-gradient(to right, #ada7ff, #dab6fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+</style>
+
+</html>

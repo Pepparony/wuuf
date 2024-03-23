@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login | Wuuf</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,600&display=swap"
+            rel="stylesheet">
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/push-right.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    </head>
+    <body class="flex w-screen h-screen">
+        <section class="w-3/5 h-full flex justify-center place-items-center">
+            <form action="/login" method="POST" class="flex flex-col justify-evenly h-2/3 w-3/5 bg-white p-16 rounded-xl">
+                <h2 class="font-bold text-3xl">WUUUUUUUUUUUF</h2>
+                <p class="bg-red-300">Your username or password was incorrect</p>
+                <label class="font-bold text-lg" for="username">Enter your email:</label>
+                <input type="email" name="username" id="username" class="border border-black py-2 px-1 rounded-2xl bg-gray-100 focus:bg-white">
+                <label class="font-bold text-lg" for="password">Enter your password:</label>
+                <input type="password" name="password" id="password" class="border border-black py-2 px-1 rounded-2xl bg-gray-100 focus:bg-white">
+            <br>
+            <button class="self-center w-2/5 rounded-full bg-orange-500 px-5 py-3 transition duration-300 hover:bg-orange-600">Login</button>
+        </form>
+        </section>
+        <section class="w-2/5 h-full flex justify-center place-items-center">
+            <img src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg" alt="">
+        </section>
+    </body>
+
+<style>
+    body {
+        overflow-x: hidden;
+    }
+
+    * {
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    #colors {
+        background: linear-gradient(to right, #ada7ff, #dab6fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+</style>
+</html>

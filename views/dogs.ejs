@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All dogs | Wuuf</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/push-right.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/select.css' rel='stylesheet'>
+</head>
+
+<body class="flex flex-col">
+    <% if(thingy){ %>
+        <nav class="flex w-screen h-2/5 place-items-center justify-evenly bg-white p-5 py-7 mx-10">
+            <div class='w-1/6'>
+                <h1 class="text-black lg:border-r-2 lg:border-gray-400 text-center font-extrabold"><a
+                        href="/">WUUUUUUUUUUUUF</a></h1>
+            </div>
+            <div class="w-3/6 hidden lg:block">
+                <div class="w-full flex justify-evenly text-black text-l tracking-wider">
+                    <a href="/mydogs" class="hover:underline underline-offset-8 hidden md:inline-block">Your Dogs</a>
+                    <a href="/createdog" class="hover:underline underline-offset-8 hidden md:inline-block">Sell
+                        Your Dog</a>
+                    <a href="/dogs" class="hover:underline underline-offset-8">Adopt
+                        A Dog</a>
+                </div>
+            </div>
+            <div class="w-1/6 flex justify-evenly text-black text-l mx-8 tracking-wide hidden lg:block">
+                <form action="/logout" method="POST">
+                    <button
+                        class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 rounded-lg px-4 py-2 bg-orange-600 text-white font-semibold transition duration-100">Log
+                        out</button>
+                </form>
+            </div>
+        </nav>
+        <% } %>
+            <% if(!thingy){ %>
+                <nav class="flex w-screen h-2/5 place-items-center justify-evenly bg-white p-5 py-7 mx-10">
+                    <div class='w-1/6'>
+                        <h1 class="text-black text-l border-r-2 border-gray-400 text-center font-extrabold"><a
+                                href="/">WUUUUUUUUUUUUF</a></h1>
+                    </div>
+                    <div class="w-3/6">
+                        <div class="w-full flex justify-evenly text-black text-l tracking-wider">
+                            <a href="/mydogs" class="hover:underline underline-offset-8">Your Dogs</a>
+                            <a href="/createdog" class="hover:underline underline-offset-8">Sell
+                                Your Dog</a>
+                            <a href="/dogs" class="hover:underline underline-offset-8">Adopt
+                                A Dog</a>
+                        </div>
+                    </div>
+                    <div class="w-1/6 flex justify-evenly text-black text-l mx-8 tracking-wide">
+                        <a href="/login"
+                            class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 hover:bg-gray-100 border border-gray-400 rounded-lg px-4 py-2 transition duration-100">Log
+                            in
+
+                            <a href="/register"
+                                class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 rounded-lg px-4 py-2 bg-orange-600 text-white font-semibold transition duration-100">Sign
+                                up</a>
+                    </div>
+                </nav>
+                <% } %>
+                    <section class="bg-gray-100 w-11/12 self-center flex flex-col">
+                        <!-- <div class="w-11/12 h-64 border border-red-500 self-center rounded-full"> -->
+                        <div class="flex justify-evenly items-center h-full w-full self-center m-16 hidden lg:flex">
+                            <div class="flex flex-col w-1/5">
+                                <p class="my-4 font-bold text-lg">Sex</p>
+                                <select name="" id="" class="border border-black p-0.5">
+                                    <option value="">Any</option>
+                                    <option value="">Male</option>
+                                    <option value="">Female</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col w-1/5">
+                                <p class="my-4 font-bold text-lg">Age</p>
+                                <select name="" id="" class="border border-black p-0.5">
+                                    <option value="">Any</option>
+                                    <option value="">Less than 1</option>
+                                    <option value="">2-4</option>
+                                    <option value="">5-8</option>
+                                    <option value="">8+</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col w-1/5">
+                                <p class="my-4 font-bold text-lg">Breed</p>
+                                <select name="" id="" class="border border-black p-0.5">
+                                    <option value="">Any</option>
+                                    <option value="">Australian Shepard</option>
+                                    <option value="">Black Lab</option>
+                                    <option value="">German Shepard</option>
+                                </select>
+                            </div>
+                        </div>
+                        <section class="grid grid-cols-4 gap-6 w-full p-4">
+                            <% for (let dog of dogs) {%>
+                                <div
+                                    class="group flex flex-col overflow-hidden rounded-t-xl bg-white transition duration-200 hover:shadow-2xl hover:shadow-gray-500">
+                                    <a href="/dogs/<%=dog._id%>" class="overflow-hidden">
+                                        <img class="transition duration-200 group-hover:scale-105 w-full h-80"
+                                            src="<%=dog.images[0].url%>"
+                                            alt="img">
+                                    </a>
+                                    <div class="flex flex-col p-4">
+                                        <a class="font-bold text-xl" href="/dogs/<%=dog._id%>">
+                                            <%=dog.tagName %>
+                                        </a>
+                                        <p class="text-gray-600 text-md my-2 p-1">
+                                            <%= !dog.breed ? "Breed unknown" : dog.breed%>
+                                        </p>
+                                        <p class="text-gray-600 text-md my-3 p-1">
+                                            <%= !dog.description ? "No description provided":
+                                                dog.description.slice(0,185)%> <a class="text-blue-500"
+                                                    href="/dogs/<%=dog._id%>">show more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </section>
+                    </section>
+</body>
+
+<script src="/Users/holdengerlach/Desktop/Projects/wuuf/scripts/dropdown.js"></script>
+
+<style>
+    .hiddenn {
+        display: none;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    * {
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    #colors {
+        background: linear-gradient(to right, #ada7ff, #dab6fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+</style>
+
+</html>

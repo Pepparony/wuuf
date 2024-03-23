@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wuuf | Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/push-right.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="flex flex-col">
+    <% if(thingy){  %>
+        <nav class="flex w-screen h-2/5 place-items-center justify-evenly bg-white p-5 py-7 mx-10">
+            <div class='w-1/6'>
+                <h1 class="text-black text-l border-r-2 border-gray-400 text-center font-extrabold"><a href="/">WUUUUUUUUUUUUF</a></h1>
+            </div>
+            <div class="w-3/6">
+                <div class="w-full flex justify-evenly text-black text-l tracking-wider">
+                    <a href="/mydogs" class="hover:underline underline-offset-8">Your Dogs</a>
+                    <a href="/createdog" class="hover:underline underline-offset-8">Sell
+                        Your Dog</a>
+                    <a href="/dogs" class="hover:underline underline-offset-8">Adopt
+                        A Dog</a>
+                </div>
+            </div>
+            <div class="w-1/6 flex justify-evenly text-black text-l mx-8 tracking-wide">
+                  <form action="/logout" method="POST">
+                    <button 
+                        class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 rounded-lg px-4 py-2 bg-orange-600 text-white font-semibold transition duration-100">Log out</button>
+                  </form>
+            </div>
+        </nav>
+        <% } %>
+        <% if(!thingy){ %>
+            <nav class="flex w-screen h-2/5 place-items-center justify-evenly bg-white p-5 py-7 mx-10">
+                <div class='w-1/6'>
+                    <h1 class="text-black text-l border-r-2 border-gray-400 text-center font-extrabold"><a href="/">WUUUUUUUUUUUUF</a></h1>
+                </div>
+                <div class="w-3/6">
+                    <div class="w-full flex justify-evenly text-black text-l tracking-wider">
+                        <a href="/mydogs" class="hover:underline underline-offset-8">Your Dogs</a>
+                        <a href="/createdog" class="hover:underline underline-offset-8">Sell
+                            Your Dog</a>
+                        <a href="/dogs" class="hover:underline underline-offset-8">Adopt
+                            A Dog</a>
+                    </div>
+                </div>
+                <div class="w-1/6 flex justify-evenly text-black text-l mx-8 tracking-wide">
+                    <a href="/login"
+                        class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 hover:bg-gray-100 border border-gray-400 rounded-lg px-4 py-2 transition duration-100">Log in
+        
+                        <a href="/register"
+                            class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 rounded-lg px-4 py-2 bg-orange-600 text-white font-semibold transition duration-100">Sign up</a>
+                </div>
+            </nav>
+            <% } %>
+    <div class="bg-gray-100 h-fit self-center mt-8 rounded w-11/12">
+        <section class="flex border border-none rounded-xl">
+            <div class="w-1/2 flex place-items-center place-content-center flex flex-col p-36">
+                <h1 class="text-7xl font-bold self-start leading-tight m-2 font-normal">Change a dogs life</h1>
+                <p class="self-start text-2xl m-2">Adopt, save and change on wuuf</p>
+                <a href=""
+                    class="self-start border rounded-xl border-black py-2.5 px-5 m-2 text-lg transition duration-100 hover:bg-gray-300">Sign
+                    in</a>
+            </div>
+            <div class="w-1/2 justify-end">
+                <img class="w-5/6 scale-y-105"
+                    src="https://images.unsplash.com/photo-1562940111-b7c83c810a03?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGRvZyUyMHdpdGglMjBodW1hbnxlbnwwfDF8MHx8fDA%3D"
+                    alt="">
+            </div>
+        </section>
+        <section class="flex flex-col place-items-center place-content-center h-fit p-36 self-center w-11/12">
+            <h1 class="tracking-wide text-4xl mb-8 text-center font-bold self-center">Adopting a dog has never been <i
+                    id="colors">easier</i></h1>
+            <p class="tracking-wider text-3xl mb-8 text-center">... or safer</p>
+            <p class="text-gray-500 text-2xl tracking-wide leading-7 text-center w-11/12 font-normal self-end">Wuuf makes
+                adopting dogs just the touch of a few buttons, with simple background checks for safety</p>
+            <div class="flex w-11/12 self-end justify-between bg-white rounded-full px-12 py-8 mt-28 shadow-sm shadow-gray-400">
+                <p class="flex flex-col place-items-center text-xl"><b class="leading-widest text-3xl mb-3">1,500</b>
+                    Dogs adopted</p>
+                <p class="flex flex-col place-items-center text-xl"><b class="leading-widest text-3xl mb-3">12,000</b>
+                    Toys sold</p>
+                <p class="flex flex-col place-items-center text-xl"><b class="leading-widest text-3xl mb-3">10,000</b>
+                    Accounts made</p>
+                <p class="flex flex-col place-items-center text-xl"><b class="leading-widest text-3xl mb-3">225</b>
+                    Lives changed</p>
+                <a href=""
+                    class="self-center bg-orange-500 rounded-full py-5 px-3 text-4xl shadow-sm shadow-gray-700 flex flex-row leading-wider transition duration-200 hover:bg-green-400">Sign
+                    in<svg width="29" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.0378 6.34317L13.6269 7.76069L16.8972 11.0157L3.29211 11.0293L3.29413 13.0293L16.8619 13.0157L13.6467 16.2459L15.0643 17.6568L20.7079 11.9868L15.0378 6.34317Z"
+                            fill="currentColor" />
+                    </svg></a>
+            </div>
+        </section>
+        <section class="flex justify-between h-fit self-center px-2">
+            <div class="w-1/2">
+                <img src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="">
+            </div>
+            <div class="bg-orange-500 w-3/5 flex flex-col place-items-center px-10">
+                <ul class="border-l-8 border-orange-400 p-28 pl-8">
+                    <li>
+                        <h2 class="font-bold text-3xl self-start w-2/3 tracking-wide">Adopt a dog today</h2>
+                    </li>
+                    <li>
+                        <p class="self-start w-5/6 text-2xl">“Saving one dog will not change the world, but surely for
+                            that one dog, the world will change forever”</p>
+                    </li>
+                    <li>
+                        <p class="text-sm self-start w-2/3">—Karen Davison <a href=""
+                                class="text-black hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 ml-4">our
+                                purpose</a> </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <div class="bg-gray-300 w-screen h-96 flex justify-evenly pt-1">
+        <% for(let i=0; i<3; i++) {%>
+            <div
+                class="group flex flex-col overflow-hidden rounded-t-xl bg-white transition duration-200 hover:shadow-2xl hover:shadow-gray-500 w-1/4">
+                <a href="/dogs/<%=dogs._id%>"
+                    class="overflow-hidden h-full transition duration-200 group-hover:scale-105 bg-cover bg-no-repeat bg-[url('https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRvZ3xlbnwwfHwwfHx8MA%3D%3D')]">
+                </a>
+                <div class="flex flex-col p-4 h-1/3">
+                    <a href="/dogs/<%=dogs._id%>"><b>
+                            <%=dogs.tagName%>
+                        </b> - <%=dogs.location%></a>
+                    <p>
+                        <%=dogs.breed%>
+                    </p>
+                </div>
+            </div>
+            <% } %>
+    </div>
+    <div class="w-11/12 bg-gray-200 flex flex-col self-center place-items-center py-16">
+        <div class="flex flex-col place-items-center justify-evenly h-full">
+            <h1 class="font-cold my-2 text-3xl">Stay up to date</h1>
+            <p class="my-2 text-md">Stay up to date on other dogs just like this one, enter your email below
+                and find other just like this</p>
+                <div class="w-full flex justify-center place-items-center">
+            <input class="w-3/6 my-2 text-center rounded-xl py-1" type="email" name="" id="" placeholder="email">
+            <button class="rounded-full bg-white h-fit w-1/6 py-1.5 ml-1 transition duration-200 hover:bg-gray-100">Join</button>
+        </div>
+            <div class="flex my-2 w-3/4 justify-evenly text-orange-500">
+                <a class="underline-offset-8 hover:underline" href="">About Us</a>
+                <a class="underline-offset-8 hover:underline" href="">Our Purpose</a>
+                <a class="underline-offset-8 hover:underline" href="">Volunteer</a>
+                <a class="underline-offset-8 hover:underline" href="">Support</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+<style>
+    body {
+        overflow-x: hidden;
+    }
+
+    * {
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    #colors {
+        background: linear-gradient(to right, #fb923c, #ea580c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+
+    #button-animation {
+        overflow: hidden;
+        transition: all 1s;
+    }
+
+    #button-animation:hover {
+        color: white;
+
+    }
+
+    #button-animation:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        z-index: -1;
+        transform: translateX(-100%);
+        transition: all 1s;
+    }
+
+    #button-animation:before:hover {
+        transform: translateX(0);
+    }
+</style>
+
+</html>

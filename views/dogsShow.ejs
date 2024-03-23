@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wuuf | Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/push-right.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="flex flex-col bg-white">
+    <% if(thingy){  %>
+        <nav class="flex w-screen h-2/5 place-items-center justify-evenly bg-white p-5 py-7 mx-10">
+            <div class='w-1/6'>
+                <h1 class="text-black text-l border-r-2 border-gray-400 text-center font-extrabold"><a href="/">WUUUUUUUUUUUUF</a></h1>
+            </div>
+            <div class="w-3/6">
+                <div class="w-full flex justify-evenly text-black text-l tracking-wider">
+                    <a href="/mydogs" class="hover:underline underline-offset-8">Your Dogs</a>
+                    <a href="/createdog" class="hover:underline underline-offset-8">Sell
+                        Your Dog</a>
+                    <a href="/dogs" class="hover:underline underline-offset-8">Adopt
+                        A Dog</a>
+                </div>
+            </div>
+            <div class="w-1/6 flex justify-evenly text-black text-l mx-8 tracking-wide">
+                  <form action="/logout" method="POST">
+                    <button 
+                        class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 rounded-lg px-4 py-2 bg-orange-600 text-white font-semibold transition duration-100">Log out</button>
+                  </form>
+            </div>
+        </nav>
+        <% } %>
+        <% if(!thingy){ %>
+            <nav class="flex w-screen h-2/5 place-items-center justify-evenly bg-white p-5 py-7 mx-10">
+                <div class='w-1/6'>
+                    <h1 class="text-black text-l border-r-2 border-gray-400 text-center font-extrabold"><a href="/">WUUUUUUUUUUUUF</a></h1>
+                </div>
+                <div class="w-3/6">
+                    <div class="w-full flex justify-evenly text-black text-l tracking-wider">
+                        <a href="/mydogs" class="hover:underline underline-offset-8">Your Dogs</a>
+                        <a href="/createdog" class="hover:underline underline-offset-8">Sell
+                            Your Dog</a>
+                        <a href="/dogs" class="hover:underline underline-offset-8">Adopt
+                            A Dog</a>
+                    </div>
+                </div>
+                <div class="w-1/6 flex justify-evenly text-black text-l mx-8 tracking-wide">
+                    <a href="/login"
+                        class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 hover:bg-gray-100 border border-gray-400 rounded-lg px-4 py-2 transition duration-100">Log in
+        
+                        <a href="/register"
+                            class="hover:underline underline-offset-8 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-4 underline-offset-1 rounded-lg px-4 py-2 bg-orange-600 text-white font-semibold transition duration-100">Sign up</a>
+                </div>
+            </nav>
+            <% } %>
+                    <section class="w-full self-center justify-between flex flex-col h-1/3">
+                        <div
+                            class="w-11/12 self-center flex flex-col jusitfy-evenly p-10 place-items-start bg-gray-100 h-fit rounded-t-xl overflow-hidden pt-16">
+                            <div class="flex w-full justify-around">
+                                <p class="text-5xl my-4"><svg width="70" height="80" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15 17C16.1046 17 17 16.1046 17 15C17 13.8954 16.1046 13 15 13C13.8954 13 13 13.8954 13 15C13 16.1046 13.8954 17 15 17Z"
+                                            fill="#ea580c" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M6 3C4.34315 3 3 4.34315 3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V6C21 4.34315 19.6569 3 18 3H6ZM5 18V7H19V18C19 18.5523 18.5523 19 18 19H6C5.44772 19 5 18.5523 5 18Z"
+                                            fill="#ea580c" />
+                                    </svg></p>
+                                <h3 class="text-6xl font-bold my-4 tracking-wide text-center">
+                                    <%=dog.tagName%>
+                                </h3>
+                                <a id="adoptBtn" href="/dogs/<%=dog._id%>/adopt"
+                                    class="font-bold text-xl text-orange-600 border border-orange-600 rounded-lg py-5 px-8 self-center transition duration-500 hover:bg-gray-100 hover:scale-95">ADOPT</a>
+                            </div>
+                            <div class="flex">
+                                <div class="w-full h-full">
+                                        <img class="mt-6 w-full max-h-96" id="mainimg"
+                                        src="<%=dog.images[0].url%>">
+                                    <div class="w-full h-20 flex jusitfy-evenly overflow-hidden mt-2 gap-2">
+                                        <div
+                                            class="rounded-lg w-full flex justify-center align-center transition duration-100 hover:scale-105 border cursor-pointer">
+                                            <img id="img1"
+                                                src="<%= !dog.images[1] ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtkqvIEIUmRnqURQ__ruETeyRLsxpghoPQXg&usqp=CAU" : dog.images[1].url%>"
+                                                alt="">
+                                        </div>
+                                        <div
+                                            class="rounded-lg w-full flex justify-center align-center transition duration-100 hover:scale-105 border cursor-pointer">
+                                            <img id="img2"
+                                                src="<%= !dog.images[2] ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtkqvIEIUmRnqURQ__ruETeyRLsxpghoPQXg&usqp=CAU" : dog.images[2].url%>"
+                                                alt="">
+                                        </div>
+                                        <div
+                                            class="rounded-lg w-full flex justify-center align-center transition duration-100 hover:scale-105 border cursor-pointer">
+                                            <img id="img3"
+                                                src="<%= !dog.images[3] ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtkqvIEIUmRnqURQ__ruETeyRLsxpghoPQXg&usqp=CAU" : dog.images[3].url%>"
+                                                alt="">
+                                        </div>
+                                        <div
+                                            class="rounded-lg w-full flex justify-center align-center transition duration-100 hover:scale-105 border cursor-pointer">
+                                            <img id="img4"
+                                                src="<%= !dog.images[4] ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtkqvIEIUmRnqURQ__ruETeyRLsxpghoPQXg&usqp=CAU" : dog.images[4].url%>"
+                                                alt="">
+                                        </div>
+                                        <div
+                                            class="rounded-lg w-full flex justify-center align-center transition duration-100 hover:scale-105 border cursor-pointer">
+                                            <img id="img5"
+                                                src="<%= !dog.images[5] ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtkqvIEIUmRnqURQ__ruETeyRLsxpghoPQXg&usqp=CAU" : dog.images[5].url%>"
+                                                alt="">
+                                        </div>
+                                        <div
+                                            class="rounded-lg w-full flex justify-center align-center transition duration-100 hover:scale-105 border cursor-pointer">
+                                            <img id="img6"
+                                                src="<%= !dog.images[6] ? dog.images[0].url : dog.images[6].url%>"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                    <div class="self-center flex w-full justify-evenly p-16 text-lg justify-between">
+                                        <ul class="text-black leading-8 p-2 w-5/12 flex flex-col">
+                                            <svg class="self-center" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10.2426 16.3137L6 12.071L7.41421 10.6568L10.2426 13.4853L15.8995 7.8284L17.3137 9.24262L10.2426 16.3137Z"
+                                                    fill="#f97316" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21Z"
+                                                    fill="#f97316" />
+                                            </svg>
+                                            <li class="flex">
+                                                <% if(dog.trained==="Dog is trained" ) {%>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12ZM14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+                                                            fill="currentColor" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12 3C17.5915 3 22.2898 6.82432 23.6219 12C22.2898 17.1757 17.5915 21 12 21C6.40848 21 1.71018 17.1757 0.378052 12C1.71018 6.82432 6.40848 3 12 3ZM12 19C7.52443 19 3.73132 16.0581 2.45723 12C3.73132 7.94186 7.52443 5 12 5C16.4756 5 20.2687 7.94186 21.5428 12C20.2687 16.0581 16.4756 19 12 19Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                    <%= dog.trained %>
+                                                        <% } %>
+                                            </li>
+                                            <li class="flex">
+                                                <% if (dog.shots==="Is up to date on shots" ) {%>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M8 9C7.44772 9 7 9.44771 7 10C7 10.5523 7.44772 11 8 11H16C16.5523 11 17 10.5523 17 10C17 9.44771 16.5523 9 16 9H8Z"
+                                                            fill="currentColor" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M6 3C4.34315 3 3 4.34315 3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V6C21 4.34315 19.6569 3 18 3H6ZM5 18V7H19V18C19 18.5523 18.5523 19 18 19H6C5.44772 19 5 18.5523 5 18Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+
+                                                    <%= dog.shots %>
+                                                        <% } %>
+                                            </li>
+                                            <li class="flex">
+                                                <% if(dog.available==="ASAP pick up" ) { %>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M22 12C22 10.6868 21.7413 9.38647 21.2388 8.1731C20.7362 6.95996 19.9997 5.85742 19.0711 4.92896C18.1425 4.00024 17.0401 3.26367 15.8268 2.76123C14.6136 2.25854 13.3132 2 12 2V4C13.0506 4 14.0909 4.20703 15.0615 4.60889C16.0321 5.01099 16.914 5.60034 17.6569 6.34326C18.3997 7.08594 18.989 7.96802 19.391 8.93848C19.7931 9.90918 20 10.9495 20 12H22Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M2 10V5C2 4.44775 2.44772 4 3 4H8C8.55228 4 9 4.44775 9 5V9C9 9.55225 8.55228 10 8 10H6C6 14.4182 9.58173 18 14 18V16C14 15.4478 14.4477 15 15 15H19C19.5523 15 20 15.4478 20 16V21C20 21.5522 19.5523 22 19 22H14C7.37259 22 2 16.6274 2 10Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M17.5433 9.70386C17.8448 10.4319 18 11.2122 18 12H16.2C16.2 11.4485 16.0914 10.9023 15.8803 10.3928C15.6692 9.88306 15.3599 9.42017 14.9698 9.03027C14.5798 8.64014 14.1169 8.33081 13.6073 8.11963C13.0977 7.90869 12.5515 7.80005 12 7.80005V6C12.7879 6 13.5681 6.15527 14.2961 6.45679C15.024 6.7583 15.6855 7.2002 16.2426 7.75732C16.7998 8.31445 17.2418 8.97583 17.5433 9.70386Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                    <%= dog.available %>
+                                                        <% } %>
+                                            </li>
+                                            <li class="flex">
+                                                <% if(dog.humanFriendly==="Is human friendly" ) {%>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9 14C9.55228 14 10 13.5523 10 13C10 12.4477 9.55228 12 9 12C8.44771 12 8 12.4477 8 13C8 13.5523 8.44771 14 9 14Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M16 13C16 13.5523 15.5523 14 15 14C14.4477 14 14 13.5523 14 13C14 12.4477 14.4477 12 15 12C15.5523 12 16 12.4477 16 13Z"
+                                                            fill="currentColor" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 11.1637 19.8717 10.3574 19.6337 9.59973C18.7991 9.82556 17.9212 9.94604 17.0152 9.94604C13.2921 9.94604 10.0442 7.91139 8.32277 4.89334C5.75469 6.22486 4 8.90751 4 12C4 16.4183 7.58172 20 12 20Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                    <%= dog.humanFriendly %>
+                                                        <% } %>
+                                            </li>
+                                            <li class="flex">
+                                                <% if(dog.dogFriendly==="Is pet friendly" ) { %>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.0122 5.57169L10.9252 4.48469C8.77734 2.33681 5.29493 2.33681 3.14705 4.48469C0.999162 6.63258 0.999162 10.115 3.14705 12.2629L11.9859 21.1017L11.9877 21.0999L12.014 21.1262L20.8528 12.2874C23.0007 10.1395 23.0007 6.65711 20.8528 4.50923C18.705 2.36134 15.2226 2.36134 13.0747 4.50923L12.0122 5.57169ZM11.9877 18.2715L16.9239 13.3352L18.3747 11.9342L18.3762 11.9356L19.4386 10.8732C20.8055 9.50635 20.8055 7.29028 19.4386 5.92344C18.0718 4.55661 15.8557 4.55661 14.4889 5.92344L12.0133 8.39904L12.006 8.3918L12.005 8.39287L9.51101 5.89891C8.14417 4.53207 5.92809 4.53207 4.56126 5.89891C3.19442 7.26574 3.19442 9.48182 4.56126 10.8487L7.10068 13.3881L7.10248 13.3863L11.9877 18.2715Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                    <%= dog.dogFriendly %>
+                                                        <% } %>
+                                            </li>
+                                            <li class="flex">
+                                                <% if(dog.injured==="Not injured" ) { %>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.9389 9.76478C11.7055 10.2653 11.1105 10.4819 10.61 10.2485C10.1094 10.0151 9.89288 9.42008 10.1263 8.91954C10.3597 8.419 10.9547 8.20244 11.4552 8.43585C11.9558 8.66925 12.1723 9.26423 11.9389 9.76478Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M8.9195 13.8737C9.42004 14.1071 10.015 13.8905 10.2484 13.39C10.4818 12.8895 10.2653 12.2945 9.76474 12.0611C9.2642 11.8277 8.66922 12.0442 8.43581 12.5448C8.20241 13.0453 8.41896 13.6403 8.9195 13.8737Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M13.8737 15.0805C13.6403 15.581 13.0453 15.7976 12.5447 15.5642C12.0442 15.3308 11.8276 14.7358 12.061 14.2352C12.2944 13.7347 12.8894 13.5181 13.39 13.7516C13.8905 13.985 14.1071 14.5799 13.8737 15.0805Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M14.2352 11.9389C14.7357 12.1723 15.3307 11.9558 15.5641 11.4552C15.7975 10.9547 15.581 10.3597 15.0804 10.1263C14.5799 9.89292 13.9849 10.1095 13.7515 10.61C13.5181 11.1106 13.7347 11.7055 14.2352 11.9389Z"
+                                                            fill="currentColor" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M17.0714 1.12432C14.0682 -0.276119 10.4983 1.02321 9.09783 4.02645L4.02641 14.9021C2.62598 17.9054 3.92531 21.4753 6.92855 22.8757C9.93179 24.2761 13.5017 22.9768 14.9021 19.9736L19.9735 9.09787C21.374 6.09463 20.0746 2.52475 17.0714 1.12432ZM13.9347 17.3157L17.3157 10.0653L10.0652 6.6843L6.68427 13.9348L13.9347 17.3157ZM13.0895 19.1283L5.83903 15.7474C4.90541 17.7495 5.77163 20.1295 7.77379 21.0631C9.77595 21.9967 12.1559 21.1305 13.0895 19.1283ZM16.2262 2.93693C18.2283 3.87055 19.0945 6.25047 18.1609 8.25264L10.9104 4.87169C11.8441 2.86953 14.224 2.00331 16.2262 2.93693Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                    <%= dog.injured %>
+                                                        <% } %>
+                                            </li>
+                                        </ul>
+                                        <ul class="text-black leading-8 p-1 w-fit flex flex-col">
+                                            <svg class="self-center" width="24" height="24" viewBox="0 0 24 24"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M12 6C12.5523 6 13 6.44772 13 7V13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13V7C11 6.44772 11.4477 6 12 6Z"
+                                                    fill="#dc2626" />
+                                                <path
+                                                    d="M12 16C11.4477 16 11 16.4477 11 17C11 17.5523 11.4477 18 12 18C12.5523 18 13 17.5523 13 17C13 16.4477 12.5523 16 12 16Z"
+                                                    fill="#dc2626" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12Z"
+                                                    fill="#dc2626" />
+                                            </svg>
+                                            <li class="flex">
+                                                <% if (dog.shots==="Is not up to date on shots" ) {%>
+                                                    <svg class="" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M5.45887 2L1 6.01478L2.33826 7.50107L6.79713 3.48629L5.45887 2Z"
+                                                            fill="currentColor" />
+                                                        <path d="M11 8H13V12H16V14H11V8Z" fill="currentColor" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12ZM5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M18.5411 2L23 6.01478L21.6617 7.50107L17.2029 3.48629L18.5411 2Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                    <%= dog.shots %>
+                                                        <% } %>
+                                            </li>
+                                            <li class="flex">
+                                                <% if(dog.available==="Is not ready to be picked up" ) { %>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9 7H11V12H16V14H9V7Z" fill="currentColor" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                    <%= dog.available %>
+                                                        <% } %>
+                                            </li>
+                                            <li class="flex">
+                                                <% if(dog.humanFriendly==="Is not friendly with humans" ) {%>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M9 14C9.55228 14 10 13.5523 10 13C10 12.4477 9.55228 12 9 12C8.44771 12 8 12.4477 8 13C8 13.5523 8.44771 14 9 14Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M16 13C16 13.5523 15.5523 14 15 14C14.4477 14 14 13.5523 14 13C14 12.4477 14.4477 12 15 12C15.5523 12 16 12.4477 16 13Z"
+                                                            fill="currentColor" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 11.1637 19.8717 10.3574 19.6337 9.59973C18.7991 9.82556 17.9212 9.94604 17.0152 9.94604C13.2921 9.94604 10.0442 7.91139 8.32277 4.89334C5.75469 6.22486 4 8.90751 4 12C4 16.4183 7.58172 20 12 20Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                    <%= dog.humanFriendly %>
+                                                        <% } %>
+                                            </li>
+                                            <li class="flex">
+                                                <% if(dog.dogFriendly==="Is not pet friendly" ) { %>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M8.46457 14.1213C8.07404 14.5118 8.07404 15.145 8.46457 15.5355C8.85509 15.926 9.48825 15.926 9.87878 15.5355L15.5356 9.87862C15.9262 9.4881 15.9262 8.85493 15.5356 8.46441C15.1451 8.07388 14.5119 8.07388 14.1214 8.46441L8.46457 14.1213Z"
+                                                            fill="currentColor" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M6.34315 17.6569C9.46734 20.781 14.5327 20.781 17.6569 17.6569C20.781 14.5327 20.781 9.46734 17.6569 6.34315C14.5327 3.21895 9.46734 3.21895 6.34315 6.34315C3.21895 9.46734 3.21895 14.5327 6.34315 17.6569ZM16.2426 16.2426C13.8995 18.5858 10.1005 18.5858 7.75736 16.2426C5.41421 13.8995 5.41421 10.1005 7.75736 7.75736C10.1005 5.41421 13.8995 5.41421 16.2426 7.75736C18.5858 10.1005 18.5858 13.8995 16.2426 16.2426Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                    <%= dog.dogFriendly %>
+                                                        <% } %>
+                                            </li>
+                                            <li class="flex">
+                                                <% if(dog.injured==="Currently injured" ) { %>
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.9389 9.76478C11.7055 10.2653 11.1105 10.4819 10.61 10.2485C10.1094 10.0151 9.89288 9.42008 10.1263 8.91954C10.3597 8.419 10.9547 8.20244 11.4552 8.43585C11.9558 8.66925 12.1723 9.26423 11.9389 9.76478Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M8.9195 13.8737C9.42004 14.1071 10.015 13.8905 10.2484 13.39C10.4818 12.8895 10.2653 12.2945 9.76474 12.0611C9.2642 11.8277 8.66922 12.0442 8.43581 12.5448C8.20241 13.0453 8.41896 13.6403 8.9195 13.8737Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M13.8737 15.0805C13.6403 15.581 13.0453 15.7976 12.5447 15.5642C12.0442 15.3308 11.8276 14.7358 12.061 14.2352C12.2944 13.7347 12.8894 13.5181 13.39 13.7516C13.8905 13.985 14.1071 14.5799 13.8737 15.0805Z"
+                                                            fill="currentColor" />
+                                                        <path
+                                                            d="M14.2352 11.9389C14.7357 12.1723 15.3307 11.9558 15.5641 11.4552C15.7975 10.9547 15.581 10.3597 15.0804 10.1263C14.5799 9.89292 13.9849 10.1095 13.7515 10.61C13.5181 11.1106 13.7347 11.7055 14.2352 11.9389Z"
+                                                            fill="currentColor" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M17.0714 1.12432C14.0682 -0.276119 10.4983 1.02321 9.09783 4.02645L4.02641 14.9021C2.62598 17.9054 3.92531 21.4753 6.92855 22.8757C9.93179 24.2761 13.5017 22.9768 14.9021 19.9736L19.9735 9.09787C21.374 6.09463 20.0746 2.52475 17.0714 1.12432ZM13.9347 17.3157L17.3157 10.0653L10.0652 6.6843L6.68427 13.9348L13.9347 17.3157ZM13.0895 19.1283L5.83903 15.7474C4.90541 17.7495 5.77163 20.1295 7.77379 21.0631C9.77595 21.9967 12.1559 21.1305 13.0895 19.1283ZM16.2262 2.93693C18.2283 3.87055 19.0945 6.25047 18.1609 8.25264L10.9104 4.87169C11.8441 2.86953 14.224 2.00331 16.2262 2.93693Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                    <%= dog.injured %>
+                                                        <% } %>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="p-10 w-5/6">
+                                    <p class="text-xl m-8 tracking-wide">
+                                        <b class="tracking-wide">Breed:</b>
+                                        <%=dog.breed %>
+                                    </p>
+                                    <p class="text-xl m-8">
+                                        <b class="tracking-wide">Age:</b>
+                                        <%=dog.age%>
+                                    </p>
+
+                                    <% if(!dog.location) { %>
+                                        <p class="text-xl m-8">
+                                            <%= "no location provided" %>
+                                        </p>
+                                        <% } %>
+                                            <% if(dog.location){%>
+                                                <p class="text-xl m-8">
+                                                    <b class="tracking-wide">Location:</b>
+                                                    <%=dog.location%>
+                                                </p>
+                                                <% } %>
+                                                    <p class="text-xl m-8">
+                                                        <b class="tracking-wide">Sex:</b>
+                                                        <%=dog.sex%>
+                                                    </p>
+                                                    <p class="text-xl font-thin m-8">
+                                                        <b class="font-bold tracking-wide">Description:</b>
+                                                        <%= dog.description %>
+                                                    </p>
+                                                    <% if(user.email == dog.author.email) {%>
+                                                    <a class="text-blue-600 m-8 underline-offset-4 hover:underline "
+                                                        href="/dogs/<%=dog._id%>/edit">Edit this information</a>
+                                                        <% } %>
+                                                    <h3 class="font-bold text-xl text-center m-10">View Seller
+                                                        information</h3>
+                                                    <div class="bg-gray-200 flex mt-4 p-4 rounded-xl w-fit overflow-hidden">
+                                                        <div class="m-1">
+                                                            <p><b><%= dog.author.email %></b>- <%= dog.location %></p>
+                                                            <p class="px-2 py-1">Wuuf offers a seamless platform for connecting buyers with sellers, ensuring a convenient and efficient experience for all parties involved. Our priority is safeguarding the privacy and security of our users, which is why we are committed to not disclosing any personal information until transactions are firmly established. </p>
+                                                        </div>
+
+                                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-200 w-screen h-1/4 flex justify-evenly pt-1">
+                            <% for(let i=0; i<3; i++) {%>
+                                <div
+                                    class="group flex flex-col overflow-hidden rounded-t-xl bg-white transition duration-200 hover:shadow-2xl hover:shadow-gray-500 w-1/4">
+                                    <a href="/dogs/<%=dog._id%>" class="overflow-hidden">
+                                        <img class="transition duration-200 group-hover:scale-105 w-full h-80"
+                                            src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRvZ3xlbnwwfHwwfHx8MA%3D%3D"
+                                            alt="img">
+                                    </a>
+                                    <div class="flex flex-col p-4 h-1/3 text-lg overflow-hidden">
+                                        <a href="/dogs/<%=dogs._id%>"><b class="tracking-wide">
+                                                <%=dogs.tagName%>
+                                            </b> - <%=dogs.location%></a>
+                                        <p>
+                                            <%=dogs.breed%>
+                                        </p>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                        <div class="w-11/12 bg-gray-100 flex flex-col self-center place-items-center py-16">
+                            <div class="flex flex-col place-items-center justify-evenly h-full">
+                                <h1 class="font-cold my-2 text-3xl">Stay up to date</h1>
+                                <p class="my-2 text-md">Stay up to date on other dogs just like this one, enter your
+                                    email below and
+                                    find other just like this</p>
+                                <input class="w-3/4 my-2 text-center rounded-full p-2" type="email" name="" id=""
+                                    placeholder="email">
+                                <div class="flex my-2 w-3/4 justify-evenly text-orange-500">
+                                    <a class="underline-offset-8 hover:underline" href="">About Us</a>
+                                    <a class="underline-offset-8 hover:underline" href="">Our Purpose</a>
+                                    <a class="underline-offset-8 hover:underline" href="">Volunteer</a>
+                                    <a class="underline-offset-8 hover:underline" href="">Support</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+</body>
+
+<script src="/showingdog.js"></script>
+
+<style>
+    body {
+        overflow-x: hidden;
+    }
+
+    * {
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    #colors {
+        background: linear-gradient(to right, #ada7ff, #dab6fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+
+    .mainContainer {
+        width: screen;
+        height: 80%;
+        background-color: red;
+        z-index: 100;
+    }
+
+    .innerContainer {
+        width: 80%;
+        height: 80%;
+    }
+</style>
+
+
+</html>
